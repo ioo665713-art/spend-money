@@ -9,17 +9,6 @@ const Counter: React.FC<CounterProps> = ({ value }) => {
   const requestRef = useRef<number | undefined>(undefined);
   const startTimeRef = useRef<number | undefined>(undefined);
   const startValueRef = useRef<number>(value);
-
-  // Formatting large currency
-  const formatMoney = (amount: number) => {
-    return new Intl.NumberFormat('en-US', {
-      style: 'currency',
-      currency: 'USD',
-      maximumFractionDigits: 0,
-      notation: amount > 1000000000000 ? 'compact' : 'standard', // Compact only for crazy huge numbers to fit screen
-      compactDisplay: 'short'
-    }).format(amount);
-  };
   
   // Custom full formatter for the main view to keep the sensation of length
   const formatMoneyFull = (amount: number) => {
