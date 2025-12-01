@@ -1,8 +1,6 @@
-import React, { useEffect, useRef } from 'react';
+import React, { useEffect } from 'react';
 
 const AdBanner: React.FC = () => {
-  const adRef = useRef<HTMLDivElement>(null);
-
   useEffect(() => {
     // 部署说明:
     // 如果你使用 Google AdSense，可以在这里加载广告脚本
