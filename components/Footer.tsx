@@ -1,6 +1,10 @@
 import React from 'react';
 
-const Footer: React.FC = () => {
+interface FooterProps {
+  onOpenDonation: () => void;
+}
+
+const Footer: React.FC<FooterProps> = ({ onOpenDonation }) => {
   return (
     <footer className="w-full bg-slate-900 border-t border-slate-800 pt-12 pb-24 mt-12 text-center relative z-10">
       <div className="container mx-auto px-4">
@@ -8,15 +12,13 @@ const Footer: React.FC = () => {
         {/* Donation Section */}
         <div className="mb-12">
           <h3 className="text-white font-bold text-lg mb-4">喜欢这个败家模拟器？</h3>
-          <a 
-            href="https://www.buymeacoffee.com/" // 替换为你自己的链接，例如 ko-fi 或 buymeacoffee
-            target="_blank" 
-            rel="noopener noreferrer"
-            className="inline-flex items-center gap-3 bg-[#FFDD00] hover:bg-[#FFEA00] text-black font-black py-3 px-8 rounded-full shadow-[0_0_20px_rgba(255,221,0,0.3)] hover:shadow-[0_0_30px_rgba(255,221,0,0.5)] transform hover:-translate-y-1 transition-all active:scale-95"
+          <button 
+            onClick={onOpenDonation}
+            className="inline-flex items-center gap-3 bg-[#FF4400] hover:bg-[#E63E00] text-white font-black py-3 px-8 rounded-full shadow-[0_0_20px_rgba(255,68,0,0.3)] hover:shadow-[0_0_30px_rgba(255,68,0,0.5)] transform hover:-translate-y-1 transition-all active:scale-95 group"
           >
-            <span className="text-xl">☕</span>
-            <span>给作者买杯真的咖啡</span>
-          </a>
+            <span className="text-xl group-hover:rotate-12 transition-transform">🧧</span>
+            <span>给作者发个红包</span>
+          </button>
           <p className="text-slate-500 text-sm mt-4 max-w-md mx-auto">
             开发这款游戏没有花费1000兆美元，但也消耗了不少脑细胞。您的支持能让开发者少写几个Bug。
           </p>
