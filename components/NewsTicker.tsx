@@ -10,8 +10,6 @@ const NewsTicker: React.FC<NewsTickerProps> = ({ lastPurchasedItemId }) => {
 
   // Update news list based on recent purchase or randomly
   useEffect(() => {
-    let newsPool = [...NEWS_HEADLINES];
-    
     // Priority queue
     const relevantNews = lastPurchasedItemId 
       ? NEWS_HEADLINES.find(n => n.itemId === lastPurchasedItemId)
