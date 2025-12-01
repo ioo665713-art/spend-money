@@ -5,7 +5,7 @@ import react from '@vitejs/plugin-react'
 export default defineConfig({
   plugins: [react()],
   define: {
-    // Polyfill for process.env to ensure compatibility
-    'process.env': {}
+    // Map the 'process.env.API_KEY' used in the code to the 'VITE_API_KEY' set in Vercel
+    'process.env.API_KEY': JSON.stringify(process.env.VITE_API_KEY)
   }
 })
