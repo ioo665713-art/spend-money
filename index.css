@@ -1,12 +1,14 @@
-@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&family=JetBrains+Mono:wght@400;700&family=Noto+Sans+SC:wght@400;700;900&display=swap');
-
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
 
 @layer base {
   body {
-    font-family: 'Inter', 'Noto Sans SC', sans-serif;
+    /* 
+      使用系统默认字体栈，移除 Google Fonts 以优化国内加载速度。
+      优先使用苹果系统字体和微软雅黑。
+    */
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei", "微软雅黑", sans-serif;
     background-color: #0f172a; /* Slate 900 */
     color: #e2e8f0;
     overflow-x: hidden;
@@ -14,7 +16,8 @@
 }
 
 .font-mono {
-  font-family: 'JetBrains Mono', monospace;
+  /* 系统等宽字体栈 */
+  font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
 }
 
 /* Custom scrollbar for receipt */
