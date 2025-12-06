@@ -9,7 +9,6 @@ import IncomeModal from './components/IncomeModal';
 import GameOverModal from './components/GameOverModal';
 import AdBanner from './components/AdBanner';
 import Footer from './components/Footer';
-import DonationModal from './components/DonationModal'; // Import new modal
 import { ITEMS, INITIAL_MONEY, ACHIEVEMENTS, BAD_LUCK_EVENTS } from './constants';
 import { Item, CartItem, AdvisorResponse, Achievement, BadLuckEvent } from './types';
 import { getFinancialAdvice } from './services/geminiService';
@@ -22,7 +21,6 @@ const App: React.FC = () => {
   const [isAdvisorOpen, setIsAdvisorOpen] = useState(false);
   const [loadingAdvice, setLoadingAdvice] = useState(false);
   const [advice, setAdvice] = useState<AdvisorResponse | null>(null);
-  const [isDonationOpen, setIsDonationOpen] = useState(false); // Donation modal state
   
   // Logic State
   const [lastPurchasedItemId, setLastPurchasedItemId] = useState<string | null>(null);
@@ -206,11 +204,11 @@ const App: React.FC = () => {
       {/* Bottom Ad Banner */}
       <AdBanner />
 
-      {/* Footer with Donation - FIXED: Passed the onOpenDonation prop */}
-      <Footer onOpenDonation={() => setIsDonationOpen(true)} />
+      {/* Footer (No Donation) */}
+      <Footer />
       
       {/* Version Indicator */}
-      <div className="text-center text-slate-800 text-[10px] pb-12 font-mono">v2.1 - Payment Ready</div>
+      <div className="text-center text-slate-800 text-[10px] pb-12 font-mono">v2.3 - Pure Fun</div>
 
       {/* News Ticker */}
       <NewsTicker lastPurchasedItemId={lastPurchasedItemId} />
@@ -236,11 +234,6 @@ const App: React.FC = () => {
       <GameOverModal 
         isOpen={showVictory}
         onRestart={handleRestart}
-      />
-
-      <DonationModal 
-        isOpen={isDonationOpen}
-        onClose={() => setIsDonationOpen(false)}
       />
     </div>
   );
